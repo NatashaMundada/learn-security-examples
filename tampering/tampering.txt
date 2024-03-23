@@ -1,0 +1,18 @@
+- Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+The vulnerability lies within the text input field that accepts user names. In the 'insecure.js' 
+server implementation, the input is not properly validated, leaving it susceptible to malicious 
+script injection. Exploiting this flaw, a malicious user can input script code into the field, 
+which will subsequently execute on the server. This can result in severe data breaches and various 
+other vulnerabilities.
+
+In contrast, the 'secure.js' server employs a sanitization function to preprocess the input text 
+before utilization. This function effectively replaces all special characters with their plain text 
+equivalents, thereby thwarting any attempts at injecting script code into the server.
+
+- Which CIA property does tampering violate?
+Tampering is a critical breach that primarily undermines the integrity aspect of information security, 
+essential for maintaining the accuracy, consistency, and trustworthiness of data. When tampering occurs,
+unauthorized modifications can disrupt operations, introduce misleading information, or result in financial 
+losses. This jeopardizes the reliability of systems and data, eroding trust in their accuracy and dependability. 
+Thus, tampering poses a substantial threat to information integrity, highlighting the importance of implementing 
+robust security measures to thwart unauthorized alterations and uphold the reliability of both data and systems.
