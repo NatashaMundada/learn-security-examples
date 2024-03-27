@@ -1,3 +1,15 @@
-Briefly explain the vulnerability and why the secure version prevents the vulnerability.
-Which CIA property does tampering violate?
-What additional security mechanisms can you incorporate?
+- Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+The insecure.js server fails to preprocess the API query input, directly passing it to the 
+MongoDB query. This oversight opens the door to potential NoSQL injection attacks, as demonstrated 
+by injecting a value of '[$ne]=' into the API query. This injection causes the execution of a MongoDB 
+query, fetching information from the database even though the expected conditions for finding a document are not met.
+In contrast, the secure.js server addresses this vulnerability by sanitizing the input query string, 
+removing non-alphanumeric characters before forwarding it to the MongoDB query. This proactive 
+measure ensures that malicious input cannot lead to NoSQL injection on the server, thus protecting
+the integrity and security of the database.
+
+- What additional security mechanisms can you incorporate?
+To further enhance security, user authentication mechanisms can be implemented on the server. By enforcing
+user authentication, access to server APIs can be restricted solely to authenticated users, thereby 
+controlling access to data and preventing unauthorized manipulation. This additional layer of security 
+strengthens overall system integrity and safeguards against potential breaches.

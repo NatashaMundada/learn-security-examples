@@ -1,2 +1,13 @@
 - Briefly explain the vulnerability and why the secure version is better at preventing repudiation than the insecure version.
+The insecure.js server lacks a mechanism to track server activities, making it impossible to validate 
+the origin of user-generated content such as messages. Without proper logs, it's challenging to 
+ascertain whether a message was indeed posted by the claimed user or by someone else, leading to 
+potential disputes and repudiation issues.
+In the secure.js server, this vulnerability is addressed by implementing a logging mechanism that 
+meticulously records all server activities. These logs create an audit trail, enabling administrators 
+to track and verify both server and user actions accurately. 
+
 - What additional security mechanisms can you incorporate to prevent such attacks?
+Implement robust user authentication mechanisms to restrict server access to authorized users only. 
+Techniques like multi-factor authentication and effective session management enhance security by 
+preventing unauthorized access, thereby safeguarding the integrity of user-generated content and server activities.

@@ -1,0 +1,14 @@
+- Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+The vulnerability lies in the insecure.js server's method of updating a user's role, which 
+relies solely on the provided user ID to determine admin privileges. Malicious users who gain 
+access to an admin's user ID can exploit this weakness by impersonating the admin and altering 
+their role to a potentially lower privileged one. 
+In the secure version, the server mitigates this vulnerability by implementing session-based 
+user validation. Before executing any role changes, the server cross-references the user ID stored 
+in the session with the one provided. Only if these match is the role update allowed to proceed, 
+ensuring that the user requesting the change is indeed the logged-in admin.
+
+- What additional security mechanisms can you incorporate to prevent such attacks?
+mplement stringent input validation mechanisms to verify the legitimacy of user-provided data, 
+particularly the user ID used for role updates. By validating inputs rigorously, the system can 
+thwart injection attacks and ensure that only authorized user IDs are accepted for role modifications.
